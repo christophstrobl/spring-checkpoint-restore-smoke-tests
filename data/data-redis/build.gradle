@@ -1,0 +1,29 @@
+plugins {
+    id "java"
+    id "org.springframework.boot"
+    id "org.springframework.cr.smoke-test"
+}
+
+repositories {
+    mavenLocal()
+}
+
+dependencies {
+    implementation(platform(org.springframework.boot.gradle.plugin.SpringBootPlugin.BOM_COORDINATES))
+    implementation("org.springframework.boot:spring-boot-starter-web")
+    implementation("org.springframework.boot:spring-boot-starter-data-redis")
+
+    implementation("org.crac:crac:$cracVersion")
+    implementation(project(":cr-listener"))
+    implementation("org.springframework.data:spring-data-redis:3.2.x-2503-SNAPSHOT") {
+        force(true)
+    }
+
+    testImplementation("org.springframework.boot:spring-boot-starter-test")
+
+    appTestImplementation(project(":cr-smoke-test-support"))
+}
+
+crSmokeTest {
+    webApplication = true
+}

@@ -2,6 +2,22 @@
 :toc:
 :toc-title: Projects
 
+== Data
+
+[%header,cols="4"]
+|===
+h|Smoke Test
+h|appTest
+h|checkpointRestoreAppTest
+h|test
+
+|data-redis
+|
+|
+|
+
+|===
+
 == Framework
 
 [%header,cols="4"]
